@@ -4,10 +4,10 @@ namespace Student
 {
     public class Student
     {
-        int id;
+        public readonly int id ;
         string givenName, surName;
-        public Status status;
-        DateTime startDate,endDate, graduationDate;
+        Status status;
+        DateTime startDate, endDate, graduationDate;
         
         public Student(int id, string givenName, string surName, Status status, DateTime startdate, DateTime endDate, DateTime graduationDate)
         {
@@ -15,20 +15,37 @@ namespace Student
             this.givenName = givenName;
             this.surName = surName;
             this.status = status;
-            this.startDate = startDate;
+            this.startDate = startdate;
             this.endDate = endDate;
             this.graduationDate = graduationDate;
 
         }
 
-        public Status getStudentStatus(DateTime nowDate)
-        {
-
-            //throw new NotImplementedException();
-            return Status.Active;
+        public Status getStudentStatusFromDate(DateTime nowDate) {
+            if (this.startDate > nowDate) 
+            { 
+                return Status.New;
+            }
+            else if (nowDate < this.graduationDate && this.endDate == this.graduationDate) 
+            { 
+                return Status.Active;
+            }
+            else if(nowDate >= this.graduationDate && this.endDate == this.graduationDate) 
+            {
+                return Status.Graduated;
+            }
+            else 
+            { 
+                return Status.Dropout; 
+            }
         }
-
+           
+        public String toString() {
+            return "hej";
+        }
     }
+
+ 
 
     public enum Status
         {
