@@ -20,6 +20,18 @@ namespace Student
             this.graduationDate = graduationDate;
 
         }
+        public Status1 Statuss(){
+
+            if (endDate <= DateTime.Now)
+                    return endDate != graduationDate ? Status1.Dropout : Status1.Graduated;
+                if (startdate < DateTime.Now)
+                {
+                    return Status1.New;
+                }
+                return Status1.Active;
+
+
+
 
         public Status getStudentStatusFromDate(DateTime nowDate) {
             if (this.startDate > nowDate) 
@@ -48,6 +60,13 @@ namespace Student
  
 
     public enum Status
+        {
+            New,
+            Active,
+            Dropout,
+            Graduated
+        }  
+         public enum Status1
         {
             New,
             Active,
