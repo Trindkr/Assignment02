@@ -13,6 +13,8 @@ namespace Student.Tests
             var date2 = new DateTime(2008, 5, 1);
             var date3 = new DateTime(2010, 3, 1);
 
+            
+
 
             var output1 = s1.getStudentStatusFromDate(date1);
             var output2 = s1.getStudentStatusFromDate(date2);
@@ -21,6 +23,15 @@ namespace Student.Tests
             Assert.Equal(Status.Active, output1);
             Assert.Equal(Status.Active, output2);
             Assert.NotEqual(Status.Active, output3);
+
+          //  var s1 = new Student(1,"bob","hansen", new DateTime(2008, 5, 1), new DateTime(2010, 3, 1),new DateTime(2010, 3, 1));
+            //var s1 = new Student(1,"bob","hansen", new DateTime(2008, 5, 1), new DateTime(2010, 3, 1),new DateTime(2010, 3, 1));
+            //var s1 = new Student(1,"bob","hansen", new DateTime(2008, 5, 1), new DateTime(2010, 3, 1),new DateTime(2010, 3, 1));
+            
+           // var output1 = s1.getStudentStatusFromDate(date1);
+            //var output2 = s1.getStudentStatusFromDate(date2);
+           // var output3 = s1.getStudentStatusFromDate(date3);
+
         }
 
         [Fact]
@@ -85,10 +96,14 @@ namespace Student.Tests
         public void ToStringMethod() 
         {
             var s1 = new Student(1,"bob","hansen", Status.Active, new DateTime(2008, 5, 1), new DateTime(2010, 3, 1),new DateTime(2010, 3, 1));
-            var output = "bob hansen id: 1 (Active) | Start: 01.05.2008 00.00.00 End: 01.03.2010 00.00.00 Graduation: 01.03.2010 00.00.00";
+            var start = new DateTime(2008, 5, 1);
+            var end = new DateTime(2010, 3, 1);
+            var grad = new DateTime(2010, 3, 1);
+            var output = $"bob hansen id: 1 (Active) | Start: {start} End: {end} Graduation: {grad}";
           
           
             Assert.Equal( s1.toString(), output);
         }
+        
     }
 }
