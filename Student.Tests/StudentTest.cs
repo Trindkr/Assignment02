@@ -81,5 +81,14 @@ namespace Student.Tests
 
             Assert.NotEqual(2, output);
         }
+         [Fact]
+        public void ToStringMethod() 
+        {
+            var s1 = new Student(1,"bob","hansen", Status.Active, new DateTime(2008, 5, 1), new DateTime(2010, 3, 1),new DateTime(2010, 3, 1));
+            var output = "bob hansen id: 1 (Active) | Start: 01.05.2008 00.00.00 End: 01.03.2010 00.00.00 Graduation: 01.03.2010 00.00.00";
+          
+          
+            Assert.Equal( s1.toString(), output);
+        }
     }
 }

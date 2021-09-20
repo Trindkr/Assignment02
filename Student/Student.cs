@@ -41,7 +41,7 @@ namespace Student
         }
            
         public String toString() {
-            return "hej";
+            return $"{givenName} {surName} id: {id} ({status}) | Start: {startDate} End: {endDate} Graduation: {graduationDate}";
         }
     }
 
