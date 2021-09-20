@@ -22,13 +22,14 @@ namespace Student
         }
         public Status1 Statuss(){
 
-            if (endDate <= DateTime.Now)
-                    return endDate != graduationDate ? Status1.Dropout : Status1.Graduated;
-                if (startdate < DateTime.Now)
+            if (this.endDate <= DateTime.Now)
+                    return this.endDate != this.graduationDate ? Status1.Dropout : Status1.Graduated;
+                if (this.startDate < DateTime.Now)
                 {
                     return Status1.New;
                 }
                 return Status1.Active;
+        }
 
 
 
@@ -74,3 +75,4 @@ namespace Student
             Graduated
         }  
 }
+
