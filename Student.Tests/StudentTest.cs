@@ -24,6 +24,34 @@ namespace Student.Tests
         }
 
         [Fact]
+        public void Test_Statuss_New() {
+            var s1 = new Student(1,"bob","hansen", Status.New, new DateTime(2022, 1, 1), new DateTime(2023, 3, 1),new DateTime(2023, 3, 1));
+            var output1 = s1.Statuss();
+            Assert.Equal(Status1.New, output1);
+        }
+
+        [Fact]
+        public void Test_Statuss_Graduated() {
+            var s1 = new Student(1,"bob","hansen", Status.New, new DateTime(2000, 1, 1), new DateTime(2020, 3, 1),new DateTime(2020, 3, 1));
+            var output1 = s1.Statuss();
+            Assert.Equal(Status1.Graduated, output1);
+        }
+
+        [Fact]
+        public void Test_Statuss_Dropout() {
+            var s1 = new Student(1,"bob","hansen", Status.New, new DateTime(2000, 1, 1), new DateTime(2019, 3, 1),new DateTime(2020, 3, 1));
+            var output1 = s1.Statuss();
+            Assert.Equal(Status1.Dropout, output1);
+        }
+
+        [Fact]
+        public void Test_Statuss_Active() {
+            var s1 = new Student(1,"bob","hansen", Status.New, new DateTime(2000, 1, 1), new DateTime(2022, 3, 1),new DateTime(2022, 3, 1));
+            var output1 = s1.Statuss();
+            Assert.Equal(Status1.Active, output1);
+        }
+
+        [Fact]
         public void Status_isOnlyReadable_New()
         {
             var s2 = new Student(2,"ib","karlsen", Status.New, new DateTime(2008, 5, 1), new DateTime(2010, 3, 1), new DateTime(2010, 3, 1));
