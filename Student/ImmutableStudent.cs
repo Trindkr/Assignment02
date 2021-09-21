@@ -11,16 +11,16 @@ public record ImmutableStudent
     public DateTime endDate { get; init; }
     public DateTime graduationDate { get; init; }
 
-    public Status1 status {
+    public Status status {
      get
             {
                 if (endDate <= DateTime.Now)
-                    return endDate != graduationDate ? Status1.Dropout : Status1.Graduated;
-                if (startdate < DateTime.Now)
+                    return endDate != graduationDate ? Status.Dropout : Status.Graduated;
+                if (startdate < DateTime.Now && DateTime.Now < startdate.AddYears(1))
                 {
-                    return Status1.New;
+                    return Status.New;
                 }
-                return Status1.Active;
+                return Status.Active;
             } 
             init{}
             }
